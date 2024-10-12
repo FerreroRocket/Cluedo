@@ -1,4 +1,4 @@
-#create sets that have all the different things in cludo
+#create sets that have all the different things in cluedo
 people = {"MS", "RG", "CM", "PP", "MP", "MV"}
 weapons = {"Ca", "Da", "Lp", "Re", "Ro", "Sp"}
 rooms = {"Ki", "Ba", "Co", "Bi", "Li", "St", "Ha", "Lo", "Di"}
@@ -8,7 +8,7 @@ knownPeople = set()
 knownWeapons = set()
 knownRooms = set()
 
-#say how many players there will be in your cludo game
+#say how many players there will be in your cluedo game
 total_number_of_players = 4
 
 #make new sets for anyone that could possibly have commited the crime by looking at the people that definately haven't done it
@@ -19,7 +19,7 @@ def suspected_weapons(weapons, knownWeapons):
 def suspected_rooms(rooms, knownRooms):
     return rooms - knownRooms
 
-#define how a round class should be created, it will be used to efficiently store all the data needed in the cludo game
+#define how a round class should be created, it will be used to efficiently store all the data needed in the cluedo game
 class Round:
     def __init__(self,asker,helper,person,weapon,room,card) :
         self.asker = asker
@@ -35,7 +35,7 @@ class Player:
         self.ownedCards = ownedCards
         self.notOwnedCards = notOwnedCards
 
-#test data for the program to use, you can change this to any cludo game and it should work
+#test data for the program to use, you can change this to any cluedo game and it should work
 def round_generator():
     rounds = []
     rounds.append(Round(0,1,"MS","Da","Di","Da"))
@@ -49,7 +49,7 @@ def round_generator():
     rounds.append(Round(0,1,"MS","Re","Ba","MS"))
     return rounds
 
-#create efficient profiles for the up to 6 possible players that could be participating in a cludo game
+#create efficient profiles for the up to 6 possible players that could be participating in a cluedo game
 def player_generator(total_number_of_players):
     players = []
     for i in range(total_number_of_players):
@@ -109,7 +109,7 @@ def analyse_rounds_sherlock(rounds, knownPeople, knownWeapons, knownRooms):
         knownPeople, knownWeapons, knownRooms = update_knowledge(card, knownPeople, knownWeapons, knownRooms)
     return knownPeople, knownWeapons, knownRooms
 
-#generate a game of cludo
+#generate a game of cluedo
 rounds = round_generator()
 players = player_generator(total_number_of_players)
 
