@@ -1,7 +1,32 @@
+#set up some constants
+MISS_SCARLETT = "Miss Scarlett"
+REVEREND_GREEN = "Reverend Green"
+COLONEL_MUSTARD = "Colonel Mustard"
+PROFESSOR_PLUM = "Professor Plum"
+MRS_WHITE = "Mrs. White"
+MRS_PEACOCK = "Mrs. Peacock"
+
+CANDLESTICK = "Candlestick"
+DAGGER = "Dagger"
+LEAD_PIPE = "Lead Pipe"
+REVOLVER = "Revolver"
+ROPE = "Rope"
+SPANNER = "Spanner"
+
+HALL = "Hall"
+LOUNGE = "Lounge"
+DINING_ROOM = "Dining Room"
+KITCHEN = "Kitchen"
+BALLROOM = "Ballroom"
+CONSERVATORY = "Conservatory"
+BILLIARD_ROOM = "Billiard Room"
+LIBRARY = "Library"
+STUDY = "Study"
+
 #create sets that have all the different things in cluedo
-people = {"MS", "RG", "CM", "PP", "MP", "MV"}
-weapons = {"Ca", "Da", "Lp", "Re", "Ro", "Sp"}
-rooms = {"Ki", "Ba", "Co", "Bi", "Li", "St", "Ha", "Lo", "Di"}
+people = {MISS_SCARLETT, REVEREND_GREEN, COLONEL_MUSTARD, PROFESSOR_PLUM, MRS_WHITE, MRS_PEACOCK}
+weapons = {CANDLESTICK, DAGGER, LEAD_PIPE, REVOLVER, ROPE, SPANNER}
+rooms = {KITCHEN, BALLROOM, CONSERVATORY, BILLIARD_ROOM, LIBRARY, STUDY, HALL, LOUNGE, DINING_ROOM}
 
 #define sets for things that definately haven't commited the crime
 knownPeople = set()
@@ -38,15 +63,15 @@ class Player:
 #test data for the program to use, you can change this to any cluedo game and it should work
 def round_generator():
     rounds = []
-    rounds.append(Round(0,1,"MS","Da","Di","Da"))
-    rounds.append(Round(1,3,"MS","Ca","St",None))
-    rounds.append(Round(2,3,"PP","Lp","Li",None))
-    rounds.append(Round(3,0,"MS","Ca","Li",None))
-    rounds.append(Round(0,1,"MS","Ca","Di","Di"))
-    rounds.append(Round(1,0,"MS","Lp","St",None))
-    rounds.append(Round(2,3,"CM","Re","Li",None))
-    rounds.append(Round(3,0,"RG","Lp","Lo",None))
-    rounds.append(Round(0,1,"MS","Re","Ba","MS"))
+    rounds.append(Round(0,1,MISS_SCARLETT,SPANNER,DINING_ROOM,SPANNER))
+    rounds.append(Round(1,3,MISS_SCARLETT,CANDLESTICK,STUDY,None))
+    rounds.append(Round(2,3,PROFESSOR_PLUM,LEAD_PIPE,LIBRARY,None))
+    rounds.append(Round(3,0,MISS_SCARLETT,CANDLESTICK,LIBRARY,None))
+    rounds.append(Round(0,1,MISS_SCARLETT,CANDLESTICK,DINING_ROOM,DINING_ROOM))
+    rounds.append(Round(1,0,MISS_SCARLETT,LEAD_PIPE,STUDY,None))
+    rounds.append(Round(2,3,COLONEL_MUSTARD,REVOLVER,LIBRARY,None))
+    rounds.append(Round(3,0,REVEREND_GREEN,LEAD_PIPE,LOUNGE,None))
+    rounds.append(Round(0,1,MISS_SCARLETT,REVOLVER,BALLROOM,MISS_SCARLETT))
     return rounds
 
 #create efficient profiles for the up to 6 possible players that could be participating in a cluedo game
